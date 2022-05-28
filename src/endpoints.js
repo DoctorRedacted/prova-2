@@ -1,7 +1,7 @@
 import { Router } from "express"
 import { par, fator, semaforo, semana } from "./services.js"
 
-//Para que possamos continuar usando nosso objeto "server", devemos importar o "Router" e criar um novo objeto server, do "express" que baixamos anteriormente, no terminal com comando "npm install express"
+//Para que possamos continuar usando o objeto "server" e, consequencialmente ser possivel a criaçao de API's, devemos importar o "Router", que baixamos anteriormente no terminal, com o comando "npm install express"
 const server = Router();
 
 
