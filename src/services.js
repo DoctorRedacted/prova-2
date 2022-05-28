@@ -1,39 +1,60 @@
-export default function semaforo(){
-    let msg='';
-    if(cor=='verde'){
-        msg='pode passar'
+export function semana(num) {
+    try {
+    let msg = '';
+    let cond = num === 0 ? msg = 'Domingo' :
+               num === 1 ? msg = 'Segunda' :
+               num === 2 ? msg = 'Terça'   :
+               num === 3 ? msg = 'Quarta'  :
+               num === 4 ? msg = 'Quinta'  :
+               num === 5 ? msg = 'Sexta'   :
+               num === 6 ? msg = 'Sabado'  :
+               msg = 'Undefined';
+        return msg;
+    } catch (error) {
+        resp.status(408).send({erro: error.message + 'deu ruim ze'})
     }
-    else if(cor=='vermelho'){
-        msg='pare';    
-    }
-    else {
-        msg='nao operacional'
-    }
-    return msg;
 }
 
-export function semana(){
-    let msg='';
-    if(dia==0){
-        msg='domingo'
+export function semaforo(cor) {
+    try {
+        let msg = '';
+        let cond = cor = 'verde' ? msg = 'Pode passar' :
+            cor = 'amarelo' ? msg = 'Espere' :
+                cor = 'vermelho' ? msg = 'Pare' :
+                    msg = 'Nao operacional';
+        return msg;
+    } catch (error) {
+        resp.status(408).send({erro: error.message + 'deu ruim ze'})
     }
-    else if(dia==1){
-        msg='segunda'
+}
+
+export function fator(num) {
+    try {
+        let cont = [];
+        let rst = 1;
+        for (let i = 1; i <= num; i++) {
+            cont[i] = i;
+            rst *= i;
+        }
+        console.log(cont + ' = ' + rst);
+        return rst;
+    } catch (error) {
+        resp.status(408).send({erro: error.message + 'deu ruim ze'})
     }
-    else if(dia==2){
-        msg='terça'
+}
+
+export function par(num) {
+    try {
+        let cont = 0;
+        let array = [];
+        for (let i = 0; i <= num; i++) {
+            if (i % 2 === 0) {
+                array[cont] = i;
+                cont++;
+            }
+        }
+        return array;
+    } catch (error) {
+        resp.status(408).send({erro: error.message + 'deu ruim ze'})
     }
-    else if(dia==3){
-        msg='quarta'
-    }
-    else if(dia==4){
-        msg='quinta'
-    }
-    else if(dia==5){
-        msg='sexta'
-    }
-    else if(dia==6){
-        msg='sabado'
-    }
-    return msg;
 }

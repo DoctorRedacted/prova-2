@@ -1,9 +1,42 @@
-import{ Router } from "express"
-import { semaforo } from "./services"
+import { Router } from "express"
+import { par, fator, semaforo, semana } from "./services.js"
 
-const server = { Router };
+//Para que possamos continuar usando nosso objeto "server", devemos importar o "Router" e criar um novo objeto server, do "express" que baixamos anteriormente, no terminal com comando "npm install express"
+const server = Router();
 
-server.get('/semaforo/:cor',(req, resp) => {
-    const x = req
+
+/* resp.send para enviar resposta ao nosso user.
+   Req.get para que algo seja implementado ao site, observe que usamos uma funcao chamada "semaforo" que foi importado da pasta "services.js"*/
+server.get('/semaforo/:cor', (req, resp) => {
+    let a = req.params.a;
+    let x = semaforo(a);
+    resp.send({cor:x})
 })
-    
+
+server.post('/sequencia', (req, resp) => {
+    let a = req.body.a
+    let x = par(a);
+    resp.send({dia:x})
+})
+
+
+
+
+
+
+
+//Req.body faz com que o parametro seja lido, apartir do body(objeto json). Observe que nesse nao usamos um "get" mas sim, "post";
+server.post('/fatorial', (req, resp) => {
+    let a = req.body.a;
+    let x = fator(a);
+    resp.send({ fatorial: x });
+})
+
+server.post('/semana', (req, resp) => {
+    let a = req.body.a;
+    let x = semana(a);
+    resp.send({dia:x})
+})
+
+//Devemos exportar o server ao final do documento, por ser 
+export default server;
