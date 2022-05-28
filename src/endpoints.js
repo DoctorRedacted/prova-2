@@ -6,7 +6,7 @@ const server = Router();
 
 
 /* resp.send para enviar resposta ao nosso user.
-   Req.get para que algo seja implementado ao site, observe que usamos uma funcao chamada "semaforo" que foi importado da pasta "services.js"*/
+   server.get para que algo seja implementado ao nosso server, observe que usamos uma funcao chamada "semaforo" que foi importada da pasta "services.js"*/
 server.get('/semaforo/:cor', (req, resp) => {
     let a = req.params.a;
     let x = semaforo(a);
@@ -18,10 +18,6 @@ server.post('/sequencia', (req, resp) => {
     let x = par(a);
     resp.send({dia:x})
 })
-
-
-
-
 
 
 
@@ -38,5 +34,5 @@ server.post('/semana', (req, resp) => {
     resp.send({dia:x})
 })
 
-//Devemos exportar o server ao final do documento, por ser 
+//Devemos exportar o server ao final do documento, por ter apenas um export em nosso arquivo, podemos colocar o "default" logo a frente do "export".
 export default server;
