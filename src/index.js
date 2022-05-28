@@ -12,5 +12,5 @@ server.use(cors());
 server.use(express.json()); 
 server.use(endpoints);
 
-//Para especificar uma porta que nosso servidor ira usar, devemos usar a funçao "listen", tambem podemos criar uma funcao de callback, para sermos avisados se tudo ocorrer como planejado (Servidor subir na porta correta)
+//Para que nosso servidor possa usar nossa variavel de estado criada em nosso arquivo ".env", devemos usar a funçao "listen", tambem podemos criar uma funcao anonima, de callback, para sermos avisados se tudo ocorrer como planejado (Servidor subir na porta correta, sintax escrita corretamente, todos elementos existirem etc)
 server.listen(process.env.PORT, () => console.log(`API NA PORTA ${process.env.PORT}`));

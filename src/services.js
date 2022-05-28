@@ -1,3 +1,5 @@
+//Arquivo criado apenas para organizar nossas funcoes, e deixar de poluir nosso index.js
+
 export function semana(num) {
     try {
     let msg = '';

@@ -1,12 +1,12 @@
 import { Router } from "express"
 import { par, fator, semaforo, semana } from "./services.js"
 
-//Para que possamos continuar usando nosso objeto "server", devemos importar o "Router" e criar um novo objeto server, do "express" que baixamos anteriormente, no terminal com comando "npm install express"
+//Para que possamos continuar usando o objeto "server" e, consequencialmente ser possivel a criaçao de API's, devemos importar o "Router", que baixamos anteriormente no terminal, com o comando "npm install express"
 const server = Router();
 
 
 /* resp.send para enviar resposta ao nosso user.
-   Req.get para que algo seja implementado ao site, observe que usamos uma funcao chamada "semaforo" que foi importado da pasta "services.js"*/
+   server.get para que algo seja implementado ao nosso server, observe que usamos uma funcao chamada "semaforo" que foi importada da pasta "services.js"*/
 server.get('/semaforo/:cor', (req, resp) => {
     let a = req.params.a;
     let x = semaforo(a);
@@ -18,10 +18,6 @@ server.post('/sequencia', (req, resp) => {
     let x = par(a);
     resp.send({dia:x})
 })
-
-
-
-
 
 
 
@@ -38,5 +34,5 @@ server.post('/semana', (req, resp) => {
     resp.send({dia:x})
 })
 
-//Devemos exportar o server ao final do documento, por ser 
+//Devemos exportar o server ao final do documento, por ter apenas um export em nosso arquivo, podemos colocar o "default" logo a frente do "export".
 export default server;
